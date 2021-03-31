@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<books>
+    <newElement bid="a1111111">new data..</newElement>
+    <book bid="sampleid">
+        <name>vijay</name>
+        <author>xyz</author>
+        <price>1200</price>
+    </book>
+    <book bid="sampleid2">
+        <name>abc</name>
+        <author>qwerty</author>
+        <price>200</price>
+    </book>
+    <newElement bid="a1111111">new data..</newElement>
+</books>

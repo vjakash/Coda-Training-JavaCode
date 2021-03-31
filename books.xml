@@ -1,0 +1,9 @@
+<!DOCTYPE books SYSTEM "books.dtd"><books>
+	<book bid="sampleid">
+		<name>vijay</name>
+		<author>xyz</author>
+		<price>1200</price></book>
+	<book bid="sampleid2">
+		<name>abc</name>
+		<author>qwerty</author>
+		<price>200</price></book></books>
