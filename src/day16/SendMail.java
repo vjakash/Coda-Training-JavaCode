@@ -15,14 +15,14 @@ public class SendMail {
 	}
 
 	private void sendMail() throws MessagingException {
-//		String fromUser="vjbakash@gmail.com";
-//		String fromUserPassword="02301119";
-//		String emailHost="smtp.gmail.com";
-//		Transport transport=newSession.getTransport("smtp");
-//		transport.connect(emailHost, fromUser, fromUserPassword);
-//		transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-//		transport.close();
-		Transport.send(mimeMessage);   
+		String fromUser="iamvjakash@gmail.com";
+		String fromUserPassword="rlytlfnamxtcmnef";
+		String emailHost="smtp.gmail.com";
+		Transport transport=newSession.getTransport("smtp");
+		transport.connect(emailHost, fromUser, fromUserPassword);
+		transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
+		transport.close();
+//		Transport.send(mimeMessage);   
 		System.out.println("Email sent successfully.....");
 		
 		
@@ -32,6 +32,7 @@ public class SendMail {
 		String[] emailReceipients= {"iamvjakash@gmail.com"};
 		String emailSubject="This is sample subject";
 		String emailBody="This is a mail from my java program";
+		
 		mimeMessage=new MimeMessage(newSession);
 		
 		for(String receipient:emailReceipients) {
@@ -41,7 +42,7 @@ public class SendMail {
 		mimeMessage.setSubject(emailSubject);
 		
 		MimeBodyPart bodyPart=new MimeBodyPart();
-		bodyPart.setContent(emailBody, "html/text");
+		bodyPart.setContent(emailBody, "text/html");
 		
 		MimeMultipart multipart=new MimeMultipart();
 		multipart.addBodyPart(bodyPart);
@@ -57,24 +58,21 @@ public class SendMail {
 		properties.put("mail.smtp.auth","true");
 		properties.put("mail.smtp.starttls.enable","true");
 		properties.put("mail.smtp.host", "smtp.gmail.com");    
-//		properties.put("mail.smtp.host", host);
-//		properties.put("mail.smtp.user", from);
-//		properties.put("mail.smtp.password", pass);
+		properties.put("mail.smtp.auth", "true");    
 //		properties.put("mail.smtp.socketFactory.port", "465");    
 //		properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");    
-		properties.put("mail.smtp.auth", "true");    
 //		properties.put("mail.smtp.port", "465");    
 //        properties.put("mail.smtp.ssl.enable", "true");
 
-//		newSession=Session.getDefaultInstance(properties);//,null
-		String fromUser="vjbakash@gmail.com";
-		String fromUserPassword="02301119";
-		newSession=Session.getInstance(properties,    
-		           new javax.mail.Authenticator() {    
-			           protected PasswordAuthentication getPasswordAuthentication() {    
-			        	   return new PasswordAuthentication(fromUser, fromUserPassword);  
-			           }    
-		           });    
+		newSession=Session.getDefaultInstance(properties);//,null
+//		String fromUser="iamvjakash@gmail.com";
+//		String fromUserPassword="rlytlfnamxtcmnef";
+//		newSession=Session.getInstance(properties,    
+//		           new javax.mail.Authenticator() {    
+//			           protected PasswordAuthentication getPasswordAuthentication() {    
+//			        	   return new PasswordAuthentication(fromUser, fromUserPassword);  
+//			           }    
+//		           });    
 		newSession.setDebug(true);
 		
 	}
