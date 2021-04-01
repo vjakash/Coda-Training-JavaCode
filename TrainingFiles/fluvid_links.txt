@@ -49,4 +49,7 @@ JBDC meta data,transactn ctl(rollback, commit).   -https://fluvid.com/videos/det
 JDBC ResultSet,PreparedStatement                  -https://fluvid.com/videos/detail/2_nw1SEm-5HMrAvAM#.YGRM6TAkElk.link
 JDBC CallableStatement,Procedures                 -https://fluvid.com/videos/detail/_LkeEcD4G_im48kKM#.YGRiqWhNQ9E.link
 
+Day-19
+Normalization,use case,DTO DAO                    -https://fluvid.com/videos/detail/aQadEUZwdmunqQx6q#.YGVcKKIuON8.link
+
 
