@@ -53,3 +53,8 @@ Day-19
 Normalization,use case,DTO DAO                    -https://fluvid.com/videos/detail/aQadEUZwdmunqQx6q#.YGVcKKIuON8.link
 
 
+Day-20
+HTTP intro, correct definition                    -https://fluvid.com/videos/detail/Y5V24TBoRgu9yq1r4#.YGqkOBEG-QI.link
+Servlet intro                                     -https://fluvid.com/videos/detail/37jwQhe5avIy8Rx79#.YGrlkjFW4Vc.link
+Servlet demo2,init method,application(global)     -https://fluvid.com/videos/detail/M-AKQT-4AVH4AdLPr#.YGr1uQnb1dE.link
+Sevlt res,req,out,redirection,RequestDispatcher.  -https://fluvid.com/videos/detail/q_2d8Snv3xFgpGdO7#.YGr_rY7SRpk.link
