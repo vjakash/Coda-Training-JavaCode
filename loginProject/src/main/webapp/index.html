@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input{
+		background-color: #9ff;
+	}
+</style>
+</head>
+<body>
+	<h1>Login</h1>
+	<form action="ActionServlet" method="post" formid="login">
+		Username:<input type="text" name="username" />
+		Password:<input type="password" name="password"/>
+		<input type="text" name="formid" value="login" hidden=true />
+ 		<br/><br/>
+		<input type="submit" value="Login">
+	</form>
+</body>
+</html>

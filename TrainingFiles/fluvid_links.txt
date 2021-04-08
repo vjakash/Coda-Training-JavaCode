@@ -58,3 +58,11 @@ HTTP intro, correct definition                    -https://fluvid.com/videos/det
 Servlet intro                                     -https://fluvid.com/videos/detail/37jwQhe5avIy8Rx79#.YGrlkjFW4Vc.link
 Servlet demo2,init method,application(global)     -https://fluvid.com/videos/detail/M-AKQT-4AVH4AdLPr#.YGr1uQnb1dE.link
 Sevlt res,req,out,redirection,RequestDispatcher.  -https://fluvid.com/videos/detail/q_2d8Snv3xFgpGdO7#.YGr_rY7SRpk.link
+
+Day-21
+Login Logout app architecture                     -https://fluvid.com/videos/detail/37jwQheyYxfy8ERQ2#.YG1a-UrBiUw.link
+Login logout app arch implementation              -https://fluvid.com/videos/detail/AZX-wTwzZAcmVQLBD#.YG2YeNTTJC8.link
+
+Day-22
+Http Session demo                                 -https://fluvid.com/videos/detail/DrG-KsO_agh-5rw8r#.YG6O-hnKIBs.link
+JSP intro                                         -https://fluvid.com/videos/detail/1eVaGHXPZmTAEm2PL#.YG6ma_5XQzw.link

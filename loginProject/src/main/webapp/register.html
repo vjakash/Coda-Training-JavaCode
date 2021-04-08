@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+</head>
+<body>
+<h1>Registration Form</h1>
+    <form action="ActionServlet" method="post">
+    	<input type="text" name="formid" value="register" hidden=true/>
+        <label for="fullName">Username:</label><br/>
+        <input type="text" name="username" id="username" placeholder="Enter your username" autofocus required />*<br/>
+        
+         <label for="password">Password:</label><br/>
+        <input type="password" name="password" id="password" placeholder="Enter your password"  required />*<br/>
+        
+        <label for="email">E-mail:</label><br/>
+        <input type="email" name="email" id="email" placeholder="Enter a valid e-mail" required />*<br/>
+        
+        <label for="dateOfBirth">Date of Birth:</label><br/>
+        <input type="date" name="dob" id="dob" required />*<br/>
+
+        <label for="age">Age:</label><br/>
+        <input type="number" name="age" id="age" size="6" min="18" max="120" step="1" value="21" /><br/>
+
+
+        <label for="phone">Phone:</label><br/>
+        <input type="text" name="phone" id="phone"  required />*<br/>
+        
+        <input type="submit" value="Register" /> 
+        <p>Fields marked * are required.</p>
+    </form>
+</body>
+</html>
