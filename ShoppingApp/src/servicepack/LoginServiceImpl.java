@@ -79,5 +79,16 @@ public class LoginServiceImpl implements LoginService,Cloneable{
 		int n=userDAO.insertUser(userDTO);
 		return n;
 	}
+
+	@Override
+	public int getUid(String uname) {
+		int n=0;
+		UserDTO userDTO=userDAO.findByName(uname);
+		if(userDTO!=null) {
+			return userDTO.getUid();
+		}
+		System.out.println(n);
+		return n;
+	}
 	
 }

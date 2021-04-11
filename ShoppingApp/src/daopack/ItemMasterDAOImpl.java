@@ -17,8 +17,8 @@ public class ItemMasterDAOImpl implements ItemMasterDAO,Cloneable {
 	private static ItemMasterDAOImpl userDaoImpl;
 	
 	public static ItemMasterDAOImpl getItemMasterDaoImpl(Properties dbConProp) {
+		dbConfigProp=dbConProp;
 		if(userDaoImpl==null) {
-			dbConfigProp=dbConProp;
 			userDaoImpl=new ItemMasterDAOImpl();
 		}
 		return userDaoImpl.getClone();

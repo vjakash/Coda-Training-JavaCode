@@ -210,11 +210,11 @@ public class PDFGenerator extends InvoiceGenerator {
 			table.addCell(getCell("+"+df.format(calculatedFields.get(2)), Element.ALIGN_CENTER));
 			document.add(table);
 			
-			rect1 = new Rectangle(356,290,580,290f);
-	        rect1.setBackgroundColor(blueColor);
-	        rect1.setBorder(Rectangle.BOX);
-	        rect1.setBorderWidth(1);
-	        canvas.rectangle(rect1);
+//			rect1 = new Rectangle(356,290,580,290f);
+//	        rect1.setBackgroundColor(blueColor);
+//	        rect1.setBorder(Rectangle.BOX);
+//	        rect1.setBorderWidth(1);
+//	        canvas.rectangle(rect1);
 	        
 			table = new PdfPTable(3);
 			columnWidths = new float[] { 7f, 1f, 1f };//column width

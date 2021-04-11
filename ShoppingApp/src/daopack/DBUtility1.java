@@ -30,7 +30,7 @@ public class DBUtility1 {
 	private static Connection con;
 	synchronized public static Connection getConnection(Properties prop) {
 		dbConfigProp=prop;
-//		System.out.println(dbConfigProp);
+		System.out.println(dbConfigProp);
 		con=tlocal.get();
 		if(con==null) {
 			try {

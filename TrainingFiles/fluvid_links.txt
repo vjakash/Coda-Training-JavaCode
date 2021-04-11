@@ -66,3 +66,7 @@ Login logout app arch implementation              -https://fluvid.com/videos/det
 Day-22
 Http Session demo                                 -https://fluvid.com/videos/detail/DrG-KsO_agh-5rw8r#.YG6O-hnKIBs.link
 JSP intro                                         -https://fluvid.com/videos/detail/1eVaGHXPZmTAEm2PL#.YG6ma_5XQzw.link
+
+Day-23
+JSP tags,attributes,jsp useBeans                  -https://fluvid.com/videos/detail/aQadEUAn2BHnqBeqY#.YG_RsRwozYY.link
+JSP custom tag,JSTL                               -https://fluvid.com/videos/detail/VBpQeigOmEIBzqkXV#.YG_ecZkoXGY.link

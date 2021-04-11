@@ -1,6 +1,8 @@
 package control;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -36,12 +38,17 @@ public class CheckoutAction extends Action{
 		String filepath=request.getServletContext().getRealPath((String) prop.get("pdffolder"));
 		System.out.println(invoiceNumber+" "+filepath);
 		
-		CheckoutServiceImpl checkoutServiceImpl=new CheckoutServiceImpl();
+		CheckoutServiceImpl checkoutServiceImpl=new CheckoutServiceImpl((Properties)request.getServletContext().getAttribute("dbConfigProp"));
+		
 		checkoutServiceImpl.generatePDF(invoiceNumber, companyAddress, deliveryAddress, cart, discount, tax,filepath);
+		checkoutServiceImpl.generateExcel(invoiceNumber, companyAddress, deliveryAddress, cart, discount, tax,filepath);
+		
+		int Uid=(int) session.getAttribute("Uid");
+		checkoutServiceImpl.storeInvoice(invoiceNumber, LocalDateTime.now().toLocalDate().toString(), Uid, filepath+"/"+invoiceNumber+".pdf", filepath+"/"+invoiceNumber+".xlsx");
 		
 		String email=(String) session.getAttribute("email");
 		try {			
-			checkoutServiceImpl.sendEmail(new String[] {email}, "Invoice for your order", "", filepath+"/"+invoiceNumber+".pdf"); 
+			checkoutServiceImpl.sendEmail(new String[] {email}, "Invoice for your order", "", filepath+"/"+invoiceNumber+".pdf", filepath+"/"+invoiceNumber+".xlsx"); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

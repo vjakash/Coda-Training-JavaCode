@@ -166,7 +166,7 @@ public class PDFGenerator extends InvoiceGenerator {
 				cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
 				cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				
-				 cell4 = new PdfPCell(new Paragraph(""+(pair.getValue().get(0)*pair.getValue().get(1))));
+				 cell4 = new PdfPCell(new Paragraph(""+(df.format(pair.getValue().get(0)*pair.getValue().get(1)))));
 				cell4.setPadding(10);
 				cell4.setPaddingBottom(10);
 				cell4.setHorizontalAlignment(Element.ALIGN_CENTER);

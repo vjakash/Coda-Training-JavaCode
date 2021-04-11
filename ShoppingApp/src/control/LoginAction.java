@@ -27,11 +27,15 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 		if(loginService.checkFlag(uname)) {
 			loginService.updateFlag(uname, 1);
 			session.setAttribute("uname",uname);
+			session.setAttribute("Uid", loginService.getUid(uname));
 			return "login.success";
 		}
 		else {
+			session.setAttribute("Uid", loginService.getUid(uname));
 			return "login.already";
 		}
+		
+		
 	}
 	else {
 		return "login.register";

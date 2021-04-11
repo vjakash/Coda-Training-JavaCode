@@ -10,6 +10,7 @@ public class UIInvoiceGenerator {
 		float discount=10f;
 		float  tax=9f;
 		Map<String,String> companyAddress=new HashMap<String, String>();
+		companyAddress.put("name", "Presidio");
 		companyAddress.put("doorno", "8th floor");
 		companyAddress.put("street", "coda street");
 		companyAddress.put("area", "guindy");
@@ -28,11 +29,13 @@ public class UIInvoiceGenerator {
 		for(int i=0;i<5;i++) {
 			ArrayList<Float> list=new ArrayList<Float>();
 			list.add(2f);
-			list.add(120f);
+			list.add(120.3f);
 			products.put("Apple"+i, list);
 		}
-		
 		PDFGenerator generator=new PDFGenerator();
 		generator.generate(invoiceNumber, companyAddress, billingAddress, products, discount, tax);
+		
+		ExcelGenerator excelGenerator=new ExcelGenerator();
+		excelGenerator.generate(invoiceNumber, companyAddress, billingAddress, products, discount, tax);
 	}
 }

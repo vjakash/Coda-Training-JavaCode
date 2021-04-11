@@ -1,5 +1,6 @@
 package invoicePack;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -34,5 +35,10 @@ public abstract class InvoiceGenerator {
 	}
 	private static float getTaxPrice(float subTotal,float tax) {
 		return subTotal*(tax/100);
+	}
+	protected String roundDecimel(double num,int noOfPlaces) {
+		
+		DecimalFormat df = new DecimalFormat("0."+"0".repeat(noOfPlaces));
+		return String.valueOf(df.format(num));
 	}
 }

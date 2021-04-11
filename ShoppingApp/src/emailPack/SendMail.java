@@ -10,9 +10,9 @@ public class SendMail {
 	 public SendMail() {
 		// TODO Auto-generated constructor stub
 	}
-	public void sendMail(String to[],String subject,String body,String filename) throws Exception {
+	public void sendMail(String to[],String subject,String body,String filenamePDF,String filenameExcel) throws Exception {
 		setupServerProperties();
-		draftMail(to,subject,body,filename);
+		draftMail(to,subject,body,filenamePDF,filenameExcel);
 		transportMail();
 	}
 	private void transportMail() throws MessagingException {
@@ -29,7 +29,7 @@ public class SendMail {
 		
 	}
 
-	private MimeMessage draftMail(String to[],String subject,String body,String filename) throws AddressException, MessagingException {
+	private MimeMessage draftMail(String to[],String subject,String body,String filenamePDF,String filenameExcel) throws AddressException, MessagingException {
 		String[] emailReceipients= to;
 		String emailSubject=subject;
 		String emailBody=body;
@@ -37,6 +37,7 @@ public class SendMail {
 		mimeMessage=new MimeMessage(newSession);
 		
 		for(String receipient:emailReceipients) {
+//			System.out.println(receipient);
 			mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(receipient));
 		}
 		
@@ -48,12 +49,20 @@ public class SendMail {
 		MimeMultipart multipart=new MimeMultipart();
 		multipart.addBodyPart(bodyPart);
 		
-		if(filename!=null && !filename.equals("")) {
+		if(filenamePDF!=null && !filenamePDF.equals("")) {
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();  
 //		    String file = "SendAttachment.java";//change accordingly  
-		    DataSource source = new FileDataSource(filename);  
+		    DataSource source = new FileDataSource(filenamePDF);  
 		    messageBodyPart2.setDataHandler(new DataHandler(source));  
-		    messageBodyPart2.setFileName(filename);  
+		    messageBodyPart2.setFileName("invoice.pdf");  
+			multipart.addBodyPart(messageBodyPart2);
+		}
+		if(filenameExcel!=null && !filenameExcel.equals("")) {
+			MimeBodyPart messageBodyPart2 = new MimeBodyPart();  
+//		    String file = "SendAttachment.java";//change accordingly  
+		    DataSource source = new FileDataSource(filenameExcel);  
+		    messageBodyPart2.setDataHandler(new DataHandler(source));  
+		    messageBodyPart2.setFileName("inovice.xlsx");  
 			multipart.addBodyPart(messageBodyPart2);
 		}
 		
@@ -86,7 +95,7 @@ public class SendMail {
 //			        	   return new PasswordAuthentication(fromUser, fromUserPassword);  
 //			           }    
 //		           });    
-		newSession.setDebug(true);
+//		newSession.setDebug(true);
 		
 	}
 }

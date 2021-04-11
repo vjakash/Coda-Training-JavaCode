@@ -28,7 +28,7 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 	while(e.hasMoreElements()) {
 		String name=e.nextElement();
 		String value=request.getParameter(name);
-//		System.out.println(name+" "+value);
+		System.out.println(name+" "+value);
 		if(name.equals("formid")||name.equals("shopid")) {
 			
 		}

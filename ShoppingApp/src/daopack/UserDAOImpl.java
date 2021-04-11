@@ -18,8 +18,8 @@ public class UserDAOImpl implements UserDAO,Cloneable{
 	private static UserDAOImpl userDaoImpl;
 	
 	public static UserDAOImpl getUserDaoImpl(Properties dbConProp) {
+		dbConfigProp=dbConProp;
 		if(userDaoImpl==null) {
-			dbConfigProp=dbConProp;
 			userDaoImpl=new UserDAOImpl();
 		}
 		return userDaoImpl.getClone();
