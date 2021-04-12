@@ -8,7 +8,13 @@ public class ItemDTO implements Serializable,Cloneable{
 	private String item_name;
 	private String item_unit;
 	private float price;
+	private String type;
 	
+
+
+	private String img_url;
+	
+
 	private static ItemDTO itemDTO;
 	synchronized public static ItemDTO getItemDTO() {
 		if(itemDTO==null) {
@@ -30,10 +36,13 @@ public class ItemDTO implements Serializable,Cloneable{
 	}
 	
 	
+
+	
+
 	@Override
 	public String toString() {
 		return "ItemDTO [itemid=" + itemid + ", item_name=" + item_name + ", item_unit=" + item_unit + ", price="
-				+ price + "]";
+				+ price + ", type=" + type + ", img_url=" + img_url + "]";
 	}
 
 	public final int getItemid() {
@@ -59,6 +68,20 @@ public class ItemDTO implements Serializable,Cloneable{
 	}
 	public final void setPrice(float price) {
 		this.price = price;
+	}
+	public String getImg_url() {
+		return img_url;
+	}
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
+	}
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override

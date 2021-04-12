@@ -9,7 +9,7 @@
 	<%@ include file="logout.jsp" %>
 	<hr>
 	<h1>Go Shopping....</h1>
-		<form action="shopping.do" method="post">
+		<form action="shopping.do;jsessionid=<%=session.getId()%>" method="post">
 			<input type="hidden" name="formid" value="goshop">
 			<input type="submit" value="Shopping........">
 		</form>

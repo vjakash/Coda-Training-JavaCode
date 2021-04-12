@@ -26,7 +26,7 @@
 	${deliveryAddress.get("doorno")},${ deliveryAddress.get("street") }<br>
 	${deliveryAddress.get("area")},<br>
 	${deliveryAddress.get("city")}-${deliveryAddress.get("pincode")}</p>
-	<form action="checkout.do">
+	<form action="checkout.do;jsessionid=<%=session.getId()%>">
 		<input type="hidden" name="formid" value="checkout"/>
 		<input type="submit" value="Place order"/>
 	</form>
@@ -44,7 +44,7 @@
 		<th>${ item.getKey()}</th>
 		<th>${ item.getValue().get(0)}</th>
 		<th>${ item.getValue().get(1)}</th>
-		<th>${ item.getValue().get(0) * item.getValue().get(1)}</th>
+		<th>${Math.round((item.getValue().get(0) * item.getValue().get(1))*100.0)/100.0}</th>
 		</tr>
 	</c:forEach>
 	<%-- <%

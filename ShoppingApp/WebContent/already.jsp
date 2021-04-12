@@ -5,6 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>You are already loged in.........<a href="login.html">Click Here to Re-login...</a></h1>
+<h1>You are already loged in.........<a href="index.jsp">Click Here to Re-login...</a></h1>
 </body>
 </html>

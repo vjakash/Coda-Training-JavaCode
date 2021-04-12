@@ -24,6 +24,7 @@ public class CheckoutAction extends Action{
 		float discount=3f;
 		float  tax=18f;
 		Map<String,String> companyAddress=new HashMap<String, String>();
+		companyAddress.put("name", "Presidio");
 		companyAddress.put("doorno", "8th floor");
 		companyAddress.put("street", "coda street");
 		companyAddress.put("area", "guindy");

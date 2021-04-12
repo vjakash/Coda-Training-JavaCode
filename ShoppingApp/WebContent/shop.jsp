@@ -11,13 +11,28 @@
 
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.itemContainer{
+display:flex;
+flex-wrap: wrap;
+margin: 20px 0;
+}
+.item{
+width:150px;
+height:250px;
+background-color: #fff;
+border:1px solid black;
+margin-right: 15px;
+}
+
+</style>
 </head>
 <body>
 <h1>Vegetable Shop</h1>
 <%@ include file="logout.jsp" %>
-	<form action="shop.do" method="post">
+	<form action="shop.do;jsessionid=<%=session.getId()%>" method="post">
 	<input type="hidden" name="formid" value="shop">
 	<input type="hidden" name="shopid" value="shop1">
 <%-- 		 <%
@@ -35,6 +50,7 @@
 		}
 	   %>  --%>
 	   <shop:getItems type="vegetables"/>
+	   
 	   <%-- <c:forEach items="${itemList}" var="item">
    			${item.item_name }
 		</c:forEach> --%>

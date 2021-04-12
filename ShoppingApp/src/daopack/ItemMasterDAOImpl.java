@@ -53,6 +53,8 @@ public class ItemMasterDAOImpl implements ItemMasterDAO,Cloneable {
 				item.setItem_name(rs.getString(2));
 				item.setItem_unit(rs.getString(3));
 				item.setPrice(rs.getFloat(4));
+				item.setType(rs.getString(5));
+				item.setImg_url(rs.getString(6));
 			}
 			DBUtility1.closeConnection(null, null);
 			return item;
@@ -77,6 +79,8 @@ public class ItemMasterDAOImpl implements ItemMasterDAO,Cloneable {
 				item.setItem_name(rs.getString(2));
 				item.setItem_unit(rs.getString(3));
 				item.setPrice(rs.getFloat(4));
+				item.setType(rs.getString(5));
+				item.setImg_url(rs.getString(6));
 				itemList.add(item);
 			}
 			DBUtility1.closeConnection(null, null);
@@ -102,6 +106,8 @@ public class ItemMasterDAOImpl implements ItemMasterDAO,Cloneable {
 				item.setItem_name(rs.getString(2));
 				item.setItem_unit(rs.getString(3));
 				item.setPrice(rs.getFloat(4));
+				item.setType(rs.getString(5));
+				item.setImg_url(rs.getString(6));
 				itemList.add(item);
 			}
 			DBUtility1.closeConnection(null, null);
@@ -115,11 +121,13 @@ public class ItemMasterDAOImpl implements ItemMasterDAO,Cloneable {
 	public int insertItem(ItemDTO itemDTO) {
 		Connection con=DBUtility1.getConnection(dbConfigProp);
 		try {
-			PreparedStatement ps=con.prepareStatement("INSERT INTO itemmaster VALUES(?,?,?,?)");
+			PreparedStatement ps=con.prepareStatement("INSERT INTO itemmaster VALUES(?,?,?,?,?,?)");
 			ps.setInt(1,itemDTO.getItemid());
 			ps.setString(2, itemDTO.getItem_name());
 			ps.setString(3, itemDTO.getItem_unit());
 			ps.setFloat(4, itemDTO.getPrice());
+			ps.setString(5, itemDTO.getType());
+			ps.setString(6, itemDTO.getImg_url());
 			int i=ps.executeUpdate();
 			DBUtility1.closeConnection(null, null);
 			return i;
@@ -135,11 +143,13 @@ public class ItemMasterDAOImpl implements ItemMasterDAO,Cloneable {
 		Connection con=DBUtility1.getConnection(dbConfigProp);
 		int i=0;
 		try {
-			PreparedStatement ps=con.prepareStatement("UPDATE itemmaster SET item_name=?,item_unit=?,price=? WHERE itemid=?;");
+			PreparedStatement ps=con.prepareStatement("UPDATE itemmaster SET item_name=?,item_unit=?,price=?,type=?,img_url=? WHERE itemid=?;");
 			ps.setString(1, itemDTO.getItem_name());
 			ps.setString(2, itemDTO.getItem_unit());
 			ps.setFloat(3, itemDTO.getPrice());
-			ps.setInt(4,itemDTO.getItemid());
+			ps.setString(4, itemDTO.getImg_url());
+			ps.setString(5, itemDTO.getType());
+			ps.setInt(6,itemDTO.getItemid());
 			i=ps.executeUpdate();
 			DBUtility1.closeConnection(null, null);
 			return i;

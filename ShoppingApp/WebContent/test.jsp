@@ -15,7 +15,7 @@
 	2. Scripting Tags
 		2a.  Declaration tag <%! %>
 		2b.  Scriplet tag <% %>
-		2c.  Expression tag<%= %>
+		2c.  Expression tag <%= %>
 	3. Standard Action Tags
 		useBean <jsp:useBean/>
 		include <jsp:include/>

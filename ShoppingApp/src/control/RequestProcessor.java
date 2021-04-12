@@ -13,13 +13,13 @@ public class RequestProcessor {
 		
 		String formid=request.getParameter("formid");
 		String actionClass=configProp.getProperty(formid);
-		System.out.println(formid);
+//		System.out.println(formid);
 		Action action=(Action)Class.forName(actionClass).getConstructor().newInstance();
 		String result=action.execute(request, response);
 		
 		String nextPage=configProp.getProperty(result);
 		
-		RequestDispatcher rd=request.getRequestDispatcher(nextPage);
+		RequestDispatcher rd=request.getRequestDispatcher( nextPage);
 		
 		rd.forward(request, response);
 		}catch(Exception e) {

@@ -68,7 +68,6 @@ public class LoginServiceImpl implements LoginService,Cloneable{
 			userDTO.setFlag(flag);
 			n=userDAO.updateUser(userDTO);
 		}
-		System.out.println(n);
 		return n;
 	}
 

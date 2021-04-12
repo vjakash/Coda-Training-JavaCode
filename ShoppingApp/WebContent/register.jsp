@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="register.do" method="post">
+	<form action="register.do;jsessionid=<%=session.getId()%>" method="post">
 	<input type="hidden" name="formid" value="register">
 		UserName:<input type="text" name="uname">
 		PassWord:<input type="password" name="upass">

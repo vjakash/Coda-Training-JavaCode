@@ -37,7 +37,6 @@ public class GetItems extends TagSupport {
 
 	@Override
 	public int doStartTag() throws JspException {
-//		System.out.println((Properties)pageContext.getRequest().getServletContext().getAttribute("dbConfigProp"));
 		Map<String,ArrayList<Float>> cart=(Map<String,ArrayList<Float>>)pageContext.getSession().getAttribute("cart");
 		if(cart==null) {
 			cart=new HashMap<String, ArrayList<Float>>();
@@ -46,15 +45,27 @@ public class GetItems extends TagSupport {
 		itemList=itemMasterDAOImpl.findAllByType(type);
 //		System.out.println(itemList);
 		JspWriter out=pageContext.getOut();
-		for(int i=0;i<itemList.size();i++){
-				try {
-					out.print(itemList.get(i).getItem_name()+"<input type=\"checkbox\" name="+itemList.get(i).getItem_name()+" value="+itemList.get(i).getPrice()+" "+(cart.get(itemList.get(i).getItem_name())!=null?"checked":null)+"/>");
-					out.println("<p>Price: "+itemList.get(i).getPrice()+"/"+itemList.get(i).getItem_unit()+"<br><br>");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		try {
+			out.println("<div class=\"itemContainer\">");
+			for(int i=0;i<itemList.size();i++){
+				out.println("<div class=\"item\">");
+				out.println("<img  src=\""+itemList.get(i).getImg_url()+"\" width=150 height=150>");
+				out.println("<p>&nbsp;"+"<input type=\"checkbox\" name="+itemList.get(i).getItem_name()+" value="+itemList.get(i).getPrice()+" "+(cart.get(itemList.get(i).getItem_name())!=null?"checked":null)+"/>"+"&nbsp; "+itemList.get(i).getItem_name()+" </p>");
+//				out.print(itemList.get(i).getItem_name()+"<input type=\"checkbox\" name="+itemList.get(i).getItem_name()+" value="+itemList.get(i).getPrice()+" "+(cart.get(itemList.get(i).getItem_name())!=null?"checked":null)+"/>");
+				out.println("<p style=\"padding-left:10px;\">Price: Rs."+itemList.get(i).getPrice()+"/"+itemList.get(i).getItem_unit()+"</p>");
+//				out.println("<p>Price: "+itemList.get(i).getPrice()+"/"+itemList.get(i).getItem_unit()+"<br><br>");
+				out.println("</div>");
+
 			}
+			out.println("</div>");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+   		
+   			
+ 
+
 		return super.doStartTag();
 	}
 }
