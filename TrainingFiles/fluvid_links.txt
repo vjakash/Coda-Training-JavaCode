@@ -74,3 +74,9 @@ JSP custom tag,JSTL                               -https://fluvid.com/videos/det
 Day-24
 Session Filter                                    -https://fluvid.com/videos/detail/XLE5Zc9DmXH6RDEM7#.YHPiNq69uDo.link
 Matrix param,enble sesin with  disable cookie     -https://fluvid.com/videos/detail/mv1dVi9nR7i7YE5Vd#.YHQ2zOx_rrs.link
+
+Day-25
+
+Day-26
+REST intro,SOAP Intro                             -https://drive.google.com/drive/folders/1usNSb9kzaamVWcZB20Q5DDiOxr8WVJcG
+SOAP Intro                                        -https://drive.google.com/file/d/17dFScQddYCJIMiM7uA_HcDE8HYuF4pcT/view?usp=sharing
