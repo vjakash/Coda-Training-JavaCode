@@ -5,5 +5,8 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<javaee:handler>
 		<javaee:handler-class>sample.MySOAPMonitor</javaee:handler-class>
 	</javaee:handler>
+<!-- 	<javaee:handler>
+		<javaee:handler-class>handler.HeaderHandler</javaee:handler-class>
+	</javaee:handler> -->
 </javaee:handler-chain>
 </javaee:handler-chains>
