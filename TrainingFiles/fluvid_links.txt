@@ -103,3 +103,5 @@ Spring                                       -https://www.youtube.com/watch?v=ao
 Spring AOP.                                  -https://www.youtube.com/watch?v=eUts2G1BHvE
 Spring JDBC Template.                        -https://www.youtube.com/watch?v=-3_Ec7i6N7A
 Spring JDBC Template 2.                      -https://www.youtube.com/watch?v=a4n3-4OBZJk
+Spring JDBC Transactions                     -https://www.youtube.com/watch?v=_M3SAJafsII&t=1035s
+Spring with annotation                       -https://www.youtube.com/watch?v=0jmQ2gq3Wxc
