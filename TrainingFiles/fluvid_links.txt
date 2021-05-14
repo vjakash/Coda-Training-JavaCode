@@ -97,6 +97,10 @@ BeanPostProcessor,4type(advice) Aspect Oriented prog      -https://drive.google.
 PointcutAdvise,Introduction(proxyInstance)(spring3)       -https://drive.google.com/drive/folders/1usNSb9kzaamVWcZB20Q5DDiOxr8WVJcG
 Spring JDBC,Spring JDBC Template(spring4)                 -https://drive.google.com/drive/folders/1usNSb9kzaamVWcZB20Q5DDiOxr8WVJcG
 
+Day-31
+Spring web intro(part-1)                                 -https://www.youtube.com/watch?v=o9cvv-mN5FE
+Spring web handling forms and flow(part-2)               -https://www.youtube.com/watch?v=a68a4DWSM-w
+
 
 Revision
 Spring                                       -https://www.youtube.com/watch?v=aoeaA6zfpaY
