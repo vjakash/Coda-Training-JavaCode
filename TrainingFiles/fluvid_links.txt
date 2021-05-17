@@ -101,6 +101,10 @@ Day-31
 Spring web intro(part-1)                                 -https://www.youtube.com/watch?v=o9cvv-mN5FE
 Spring web handling forms and flow(part-2)               -https://www.youtube.com/watch?v=a68a4DWSM-w
 
+Day-32
+SpringMVC error handling                                 -https://www.youtube.com/watch?v=kGbk0wxAoPI
+SpringmMVC web 4.0                                       -https://www.youtube.com/watch?v=EXzFv4-1vP8
+Spring MVC with hibernate ,complete flow                 -https://www.youtube.com/watch?v=xLLRB27JIh4
 
 Revision
 Spring                                       -https://www.youtube.com/watch?v=aoeaA6zfpaY
