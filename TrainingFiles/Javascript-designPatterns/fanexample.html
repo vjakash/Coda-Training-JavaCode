@@ -1,0 +1,54 @@
+<script>
+	function OnState(){
+		this.pull=function(fan)
+		{
+			this.Fan=fan;
+			console.log('on speed state....');
+			fan.setState(new LowSpeedState());
+		}
+	}
+	function LowSpeedState(){
+	this.pull=function(fan)
+		{
+			this.Fan=fan;
+			console.log('low speed state....');
+			fan.setState(new MediumSpeedState());
+		}	
+	}
+	function MediumSpeedState(){
+		this.pull=function(fan)
+		{
+			this.Fan=fan;
+			console.log('medium speed state....');
+			fan.setState(new OffState());
+		}
+	}
+	function OffState(){
+		this.pull=function(fan)
+		{
+			this.Fan=fan;
+			console.log('Off speed state....');
+			fan.setState(new OnState());
+		}
+	}
+	function Fan()
+	{
+		this.state=new OffState();
+		this.pull=function()
+		{
+			this.state.pull(this);
+		}	
+		this.setState=function(fanstate)
+		{
+			this.state=fanstate;
+		}
+	} 
+	var f=new Fan();
+	//f.setState(new OffState());
+	for(var i=0;i<5;i++)
+	{
+		console.log('called...');
+		//console.log(f)
+		f.pull();	
+	}
+</script>

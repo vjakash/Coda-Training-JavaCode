@@ -1,0 +1,52 @@
+<script>
+//Object Constructor 
+	var person=new Object();
+	person.name='ramu';
+	person.getName=function(){return this.name;};
+	
+	console.log(person.getName());
+	var np=person;
+	console.log(np instanceof Object);
+	/**
+	The main advantage of this approach is its simplicity. 
+	On the other hand, instantiating multiple objects of the same type leads 
+	to a lot of code duplication. Moreover, it is not a compact construct 
+	which means it is not intuitively straightforward in pointing out to 
+	where the object's construction ends.
+	*/
+//Literal Constructor
+//While the literal notation is more compact and elegant than the Object constructor, 
+//it is still not reusable.
+var nobitha={
+	name:'nobitha niyan',
+	getName:function(){
+		return this.name;
+	}	
+}
+	console.log(nobitha.getName());
+	
+//Factory function
+//The Factory function allows to encapsulate and re-use the logic for creating similar objects. 
+//It leverages any of the previous constructs for this. 
+var actor=function(name,age)
+{
+	this.name=name;this.age=age;
+	this.whoami=function(){return 'i am '+this.name+' and my age is '+this.age;}	
+}
+jian=new actor('jian',10);console.log(jian.whoami());
+sunio=new actor('sunio',10);console.log(sunio.whoami());
+console.log(jian instanceof actor);
+
+var actor2=function(name,age)
+{
+	var resultactor=new Object();
+	resultactor.name=name;resultactor.age=age;
+	resultactor.whoami=function(){return 'i am '+this.name+' and my age is '+this.age;};
+	return resultactor;
+}
+jian2=new actor2('jian2',10);
+console.log(jian2.whoami());
+console.log(jian2 instanceof actor2);//this will return false
+
+
+</script>

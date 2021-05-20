@@ -1,0 +1,19 @@
+<script>
+	var mymodule={
+		myobj:{
+			language:'en',
+			writable:true
+		},
+		setMyobj:function(myobj)
+		{
+			this.myobj=myobj;
+		},
+		getMyobj:function()
+		{
+			return this.myobj;
+		}	
+	};
+	
+	mymodule.setMyobj({language:'fr',writable:false});
+	console.log(mymodule.getMyobj().language);
+</script>

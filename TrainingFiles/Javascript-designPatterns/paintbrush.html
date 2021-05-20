@@ -1,0 +1,19 @@
+<script>
+	function paint(colour){
+			this.colour=colour;
+	}
+	
+	var paintbrush={
+		
+		painting:function(paint)
+		{
+			this.paint=paint;
+			console.log(paint.colour)	;
+		}
+		
+	};
+	
+	paintbrush.painting(new paint('red'));
+	
+	
+</script>

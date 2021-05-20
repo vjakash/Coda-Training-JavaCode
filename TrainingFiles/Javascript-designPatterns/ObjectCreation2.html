@@ -1,0 +1,27 @@
+<script>
+	
+	var actor=(function(){
+		 	singleton=function(){
+			console.log('instantiated.....');
+			this.name='hello world'	;
+			this.whoami=function(){return 'i am..:'+this.name;}
+		}
+		
+		return{
+			getInstance:function(){
+				// if(!singleton)
+				// {
+					// singleton=new singleton();
+				// }
+				// return singleton;
+				return new singleton();
+			}	
+		}
+	})();
+	var sing=actor.getInstance();
+	actor.getInstance();
+	actor.getInstance();
+	console.log(sing.whoami());
+	
+	
+	</script>

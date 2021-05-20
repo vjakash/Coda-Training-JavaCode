@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	//object notation
+		var obj=new Object();
+		obj.name="ramu";
+		obj.getName=function(){
+				return this.name;
+			}
+		//window.alert(obj.getName());
+		
+	//literal notation
+	var human={
+			name :"ramu22222222222",
+			getName:function(){
+					return this.name;
+				}
+		}
+	//alert(human.getName());
+	
+	//factory notation
+	var human2=function(name){
+		var h=new Object();
+		h.name=name,
+		h.getName=function(){
+			return this.name;
+		};
+		return h;
+	}
+	var hum2=human2("ramu3333333333333333333");
+	//alert(hum2.getName());
+	
+	//function constructor
+	function Human(name){
+		this.name=name;
+		this.getName=function(){
+			return this.name;
+		}
+	}
+	var h=new Human("ramu444444444444444444");
+	//alert(h.getName());
+	
+	//Prototyping notation
+	function Coda(name){
+		this.name=name;
+	}
+	Coda.prototype.getName=function(){return this.name;}
+	var c=new Coda("codaaaaaaaaaaaaaa");
+	/* alert(c.getName()); */
+	
+	
+	//inheritance
+	function ShoeFactory(name){
+		this.name=name;
+	}
+	function BataShoeFactory(){
+		this.getName=function(){
+			return this.name;
+		}
+	}
+	BataShoeFactory.prototype=new ShoeFactory("shoe factory");
+	BataShoeFactory.prototype.constructor=BataShoeFactory;
+	var b=new BataShoeFactory();
+	alert(b.constructor);
+	alert(b.getName());
+	</script>
+</body>
+</html>

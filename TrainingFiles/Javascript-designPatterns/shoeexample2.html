@@ -1,0 +1,39 @@
+<script>
+	
+	var shoe={name:'shoe'};
+	
+	function shoefactory()
+	{
+		this. makeShoe=function()
+		{
+			return shoe;
+		}	
+	}
+	
+	
+	function shoeshop()
+	{
+		this.shoefac='';
+		this.setShoefac=function(shoefactory)	
+		{
+			this.shoefac=shoefactory;	
+		}
+		this.getShoefac=function()
+		{
+			return this.shoefac;
+		}
+	}
+	function ramushoeshop()
+	{
+		this.sellShoe=function()
+		{
+			return this.getShoefac().makeShoe();
+		}	
+	}
+	ramushoeshop.prototype=new shoeshop();
+	
+	var r=new ramushoeshop();
+	r.setShoefac(new shoefactory());
+	console.log(r.sellShoe().name);
+	
+</script>

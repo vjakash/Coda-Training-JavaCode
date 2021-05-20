@@ -1,0 +1,143 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+body{
+	display:flex;
+	flex-wrap: wrap;
+	width:100%;
+	height:100vh;
+}
+header{
+	width:100%;
+	height:100px;
+	background-color: #f1ffd5;
+	display:flex;
+	justify-content: center;
+	align-content: center;
+}
+header p{
+	align-self: center;
+	font-family: 'blacksword';
+    font-size: 40px;
+	font-weight:1000;
+	color:#282b23;
+}
+main{
+	width:100%;
+	height:calc(100vh - 100px);
+	background-image: url("/images/loginBG.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	display:flex;
+	justify-content: flex-end;
+}
+.form{
+	margin:30px 130px;
+	width:500px;
+	min-height:500px;
+	max-height:720px;
+	border-radius: 25px;
+	background-color:#fff;
+	box-shadow: 0px 1px 15px 2px #cacaca;
+	align-self: start;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start !important;
+}
+.title{
+	width:100%;
+	color:#2b5328;
+	font-size: 2em;
+	text-align: center;
+}
+
+.registerVector{
+	width:100%;
+	height:120px;
+	text-align:center;
+}
+.registerVector img{
+	width:120px;
+	height:120px;
+}
+.loginPhrase{
+	width: 100%;
+	text-align: center;
+	color:#a2a2a2;
+	font-size:1.2em;
+	font-weight: 600;
+}
+.loginPhrase .signin{
+	color:#2b5328;
+	cursor: pointer;
+	text-decoration: none;
+}
+.loginPhrase .signin:hover{
+	text-decoration: underline;
+}
+
+.inputContainer{
+	width:100%;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top:5px;
+}
+.inputWrapper{
+	width:48%;
+	margin-bottom: 10px;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.inputWrapper label{
+	width:80%;
+	color:#9d9d9d;
+	margin-left: 20px;
+	
+}
+.inputWrapper input{
+	width: 75%;
+	height:30px;
+	padding:2px 10px;
+	border:none;
+	border-radius: 5px;
+	box-shadow: 0px 1px 15px 2px #cacaca;
+}
+.errorDiv{
+	color:red;
+	width:100%;
+	min-height:0;
+	text-align: center;
+}
+.errorDiv errors{
+	width:50%;
+	text-align: left;
+}
+.submitDiv{
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+}
+.submitDiv input{
+	background-color: #508c00;
+	color:#fff;
+	border:none;
+	border-radius: 8px;
+	width:150px;
+	height:35px;
+	padding:2px 10px;
+	font-size:1em;
+	cursor: pointer;
+}
+.submitDiv input:hover{
+	background-color:#7ebc35;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+footer {
+	width:100%;
+    margin-top: 85px;
+    position: relative;
+    bottom: 0;
+    height: 370px;
+    background-color: #021700;
+    color: #fff;
+}
+
+.Footercontainer {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.contactDiv>p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contactDiv>p:nth-child(1) {
+    display: inline-block;
+    font-size: 1.8em;
+    border-bottom: 2px solid #08B808;
+}
+
+.iconsDiv {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.iconsDiv>a {
+    width: 33%;
+    text-align: center;
+}
+
+.clickable>p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.clickable>p:nth-child(1):hover {
+    text-decoration: none;
+    cursor: default;
+}

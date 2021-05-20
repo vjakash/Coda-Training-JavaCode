@@ -1,0 +1,55 @@
+<script>
+	function Paint(){
+		this.getColor=function()
+		{
+			return 'The colour now is....'+this.color;
+		}		
+	}
+	function RedPaint(color){
+		this.color=color;	
+	}
+	function BluePaint(color){
+		this.color=color;	
+	}
+	RedPaint.prototype=new Paint();
+	BluePaint.prototype=new Paint();
+	
+	function PaintBrush(){
+		var p;
+		this.doPainting=function()
+		{
+			return this.p.getColor();	
+		}
+		this.setPaint=function(paint)
+		{
+			this.p=paint;	
+		}
+	}	
+	
+	//var pb=new PaintBrush();
+	//pb.setPaint(new BluePaint('Blue'));
+	var jason={
+		brush:'PaintBrush2',
+		paint:'BluePaint'
+	}
+	var springjs=(function()
+	{
+		var pb;
+		init=function()
+		{
+			pb=new window[jason.brush]();
+			var paint=new window[jason.paint]('red');
+			pb.setPaint(paint);//dependency injection....
+		}	
+		return{
+			getBean:function(){
+				init();
+				return pb;				
+			}
+		}	
+	})();	
+	var pb=springjs.getBean('brush');	
+	console.log(pb.doPainting());
+</script>
+
+

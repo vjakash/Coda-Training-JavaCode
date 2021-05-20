@@ -1,0 +1,15 @@
+<script>
+	function Actor(name){
+		this.name=name;
+		this.getName=function(){return 'default vlaue';}
+	};
+	a=new Actor('somu');
+	Actor.prototype.lname='ramu';
+	Actor.prototype.getName=function(){return this.lname;}
+	
+	console.log(a.getName());
+	delete Actor.name;
+	console.log(a.getName());
+	//console.log(actor.prototype.constructor);
+	
+</script>

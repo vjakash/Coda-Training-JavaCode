@@ -1,0 +1,92 @@
+<script>
+	var config={
+		bean:{
+			name:'shop',
+			classname:'ramushoeshop',
+			prop:{
+				name:'shoefac',
+				classname:'bataShoeFactory'
+			}
+		}
+	};
+	var appcontext=(function(name){
+		function init()
+		{
+			return{
+				getBean:function(){
+				console.log(config.bean.prop.classname);
+				var cnshop=config.bean.classname
+				var cnfac=config.bean.prop.classname;
+				var ss=new window[cnshop]();
+				var sf=new window[cnfac]();
+				ss.setShoefac(sf);
+				return ss;
+				}
+			};
+		}
+		return{
+			load:function(){
+				return init();
+			}
+		}
+	})();
+	
+	var shoe={name:'shoe'};//literal style of creating object
+	function shoefactory()
+	{
+		this.makeShoe=function()
+		{
+			console.log('make shoe method called...');
+			alert("make shoe method called...");
+			return shoe;
+		}	
+	}	
+	function bataShoeFactory()
+	{
+		this.makeShoe=function()
+		{
+			console.log('make shoe method of bata called...');
+			return shoe;
+		}	
+	}
+	bataShoeFactory.prototype=new shoefactory();
+	function lakhaniShoeFactory()
+	{
+		this.makeShoe=function()
+		{
+			console.log('make shoe method of lakhani called...');
+			return shoe;
+		}	
+	}
+	lakhaniShoeFactory.prototype=new shoefactory();
+	function shoeshop()
+	{
+		this.shoefac='';
+		this.setShoefac=function(shoefactory)	
+		{
+			this.shoefac=shoefactory;	
+		}
+		this.getShoefac=function()
+		{
+			return this.shoefac;
+		}
+	}
+	function ramushoeshop()
+	{
+		this.sellShoe=function()
+		{
+			console.log('sell shoe called...');
+			return this.getShoefac().makeShoe();
+		}	
+	}	ramushoeshop.prototype=new shoeshop();//this line does inheritance
+	
+	var sss=appcontext.load().getBean();
+	var shoshoe=sss.sellShoe();
+	//console.log(shoshoe.name);
+	
+	
+	//var r=new ramushoeshop();
+	//r.setShoefac(new shoefactory());
+	//console.log(r.sellShoe().name);
+	
+</script>

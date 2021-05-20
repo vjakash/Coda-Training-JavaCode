@@ -1,0 +1,62 @@
+<script>
+	function exceptionHandler(eo)
+	{
+		
+	}
+	function DogException()
+	{
+		this.showMsg=function(){console.log('The Exception is...'+this.msg)}	
+	}
+	function DogBiteExcepiton(msg){this.msg=msg;
+			this.handle=function(){
+				console.log('dog bite exception is handled...........')
+			}
+		}
+	function DogRunExcepiton(msg){this.msg=msg;
+		this.handle=function(){
+				console.log('dog run exception is handled...........')
+			}
+		}
+	function DogHappyExcepiton(msg){this.msg=msg;
+		this.handle=function(){
+				console.log('dog happy exception is handled...........')
+			}
+		}
+	
+	DogBiteExcepiton.prototype=new DogException();
+	DogRunExcepiton.prototype=new DogException();
+	DogHappyExcepiton.prototype=new DogException();
+	
+	function Dog()
+	{
+		this.play=function(item)
+		{
+			item.action();
+		}
+	}
+	function Stick(){
+		this.action=function(){throw new DogRunExcepiton('stick i run.....');}
+	}
+	function Stone(){
+		this.action=function(){throw new DogBiteExcepiton('you beat I bite...');}
+	}
+	function Biscuit(){
+		this.action=function(){throw new DogHappyExcepiton('Yummy yummy......');}
+	}
+	function Human(item)
+	{
+		var tiger=new Dog();
+		this.activity=function()
+		{
+			try{
+				tiger.play(item);
+			}catch(e)
+			{
+				e.showMsg();
+				e.handle();
+			}		
+		}	
+	}
+	var rajni=new Human(new Stone());
+	rajni.activity();
+</script>

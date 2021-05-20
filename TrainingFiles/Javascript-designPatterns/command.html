@@ -1,0 +1,60 @@
+<script>
+	function hospital()
+	{
+		this.doPostmortem=function(){return 'get the postmortem certificate';}
+	}
+	function police()
+	{
+		this.doInvestigation=function(){return 'get police clearance';}
+	}
+	function corporation()
+	{
+		this.giveCertificate=function(){return 'get corporation certificate';}
+	}
+	function command(){
+		this.execute=function(){
+			return 'I am dummy yet to be operational';
+		}
+	}
+	function deathcertificate(hospital,police,corporation){
+			this.hospital=hospital;
+			this.police=police;
+			this.corporation=corporation;
+		this.execute=function(){
+			var result=hospital.doPostmortem();
+			result=result+':'+police.doInvestigation();
+			result=result+':'+corporation.giveCertificate();
+			return result+':'+'Death Certificate Given...';
+		}		
+	}
+	deathcertificate.property=new command();
+	deathcertificate.property.constructor=deathcertificate;
+	var commands=[];
+	var seva=(function sevacenter()
+	{
+		function init()
+		{
+			for(var i=0;i<5;i++)
+			{
+				commands[i]=new command();				
+			}	
+		}
+		function setSeva(command,slot){
+			commands[slot]=command;
+		}
+		function getSeva(slot)
+		{
+			return commands[slot];
+		}
+		return{
+			getSeva:function()
+			{
+				init();		
+				setSeva(new deathcertificate(new hospital(),new police(),new corporation()),1);				
+			}
+		}				
+	})();
+	seva.getSeva();
+	
+	console.log(commands[1].execute());
+</script>

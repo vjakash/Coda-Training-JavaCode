@@ -1,0 +1,25 @@
+<script>
+	var singleton=(function(){
+		var instantiated;
+		var myobj=function(){
+			console.log('aaaa');
+			this.name='jian',
+			this.whoami=function(){return 'i am..'+this.name;}
+		}
+		
+		return{
+			getInstance:function()
+			{
+				// if(!instantiated){
+				// instantiated= new myobj();}
+				// return instantiated;
+				return new myobj();
+			}					
+		}
+	})();
+	singleton.getInstance();
+	singleton.getInstance();
+	singleton.getInstance();
+	var ob=singleton.getInstance();
+	console.log(ob.whoami());
+</script>

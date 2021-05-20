@@ -1,0 +1,22 @@
+<script>
+	var notsingleton=function()
+	{
+		console.log('non singleton instance created....');
+		this.name='jian';
+		this.whoami=function(){return this.name};
+	}
+	
+	var singleton=new function()
+	{
+		console.log('singleton instance created once...');
+		this.name='doremon'
+		this.whoami=function(){return this.name};
+	}
+	console.log(new notsingleton().whoami());
+	console.log(new notsingleton().whoami());
+	
+	console.log(singleton.whoami());
+	console.log(singleton.whoami());
+	console.log(singleton.whoami());
+	
+</script>

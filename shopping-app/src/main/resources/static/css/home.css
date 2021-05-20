@@ -1,0 +1,365 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+body{
+	display:flex;
+	flex-wrap: wrap;
+	width:100%;
+	height:100vh;
+}
+
+/*hamburger menu*/
+
+.hamburger {
+    display: inline-block;
+    padding: 15px 15px;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    border: none;
+    background-color: transparent;
+    overflow: visible;
+    position: relative;
+    z-index: 5;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+.hamburger:hover,
+.hamburger.is-active:hover {
+    opacity: 0.9;
+}
+
+.hamburger-box {
+    height: 24px;
+    width: 35px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 35px;
+    height: 4px;
+    display: block;
+    background-color: #8f8f8f;
+    border-radius: 4px;
+    position: absolute;
+    transition: transform 0.15s ease;
+}
+
+.hamburger-inner {
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    transform: scaleX(0.75);
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+.hamburger--spin .hamburger-inner {
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+
+.hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+
+/* Navbar */
+
+nav {
+    height: 85px;
+    width: 100vw;
+    background-color: #F1FFD5;
+    position: fixed;
+    z-index: 11;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: none;
+    padding: 12px;
+    position: absolute;
+    top: 20px;
+    left: 27px;
+    cursor: pointer;
+}
+
+.circle {
+    position: absolute;
+    top: 20px;
+    right: 47px;
+    cursor: pointer;
+}
+
+
+.circle img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    font-family: 'blacksword';
+    font-size: 40px;
+}
+
+
+main{
+	width:100%;
+	margin-top:85px;
+	min-height:calc(100vh - 85px);
+}
+#banner{
+	width:100%;
+	height:500px;
+	background-image: url("https://gudbasket-pictures.s3.ap-south-1.amazonaws.com/admin-banners/banner-3.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+}
+.banner-btn {
+    margin-top: 85px;
+    position: absolute;
+    width: 5%;
+    height: 500px;
+    background-color: #8f8f8f3f;
+    z-index: 2;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.banner-btn>button {
+    background: none;
+    border: none;
+    font-size: 5em;
+    color: #fff;
+    cursor: pointer;
+}
+
+.banner-btn>button:focus {
+    outline: 0;
+}
+
+.banner-btn:hover {
+    opacity: 1;
+}
+
+#banner>.left {
+    top: 0;
+    left: 0;
+}
+
+#banner>.right {
+    top: 0;
+    right: 0;
+}
+
+.productContainer{
+	width:100%;
+	margin-bottom: 30px;
+}
+.category{
+	width:95%;
+	height:auto;
+	display:flex;
+	flex-wrap: wrap;
+	padding:20px 40px;
+}
+.categoryName{
+	width:100%;
+	font-size:2.5em;
+	font-weight:500;
+	color:#2b5328;
+	letter-spacing: 5px;
+}
+.productList{
+	width:100%;
+	height:auto;
+	display:flex;
+	flex-wrap: wrap;
+}
+.product{
+	margin-right:30px;
+	margin-bottom:30px;
+	width:300px;
+	height:360px;
+	 box-shadow: 0px 0px 20px #00000029;
+	 border-radius:25px;
+	 display:flex;
+	 flex-wrap: wrap;
+	 align-content: flex-start;
+	 justify-content: center;
+}
+.product img{
+	max-width:100%;
+	height:200px;
+	border-radius:25px;
+	margin:0;
+}
+.product .productName{
+	margin:3px 0;
+	padding-left:20px;
+	font-size:1.5em;
+	color:#43a53c;
+	width:100%;
+	height:35px;
+}
+.product .productPrice{
+	margin:3px 0;
+	padding-left:20px;
+	font-size:1em;
+	color:#43a53c;
+	width:100%;
+	align-self: flex-start;
+	height:35px;
+}
+
+.product form{
+	width:100%;
+	position:relative;
+	display:flex;
+	flex-wrap: wrap;
+	height:85px;
+}
+.quantityInput{
+	height:30px;
+	margin: 0 20px;
+	border:none;
+	box-shadow: 0px 0px 20px #00000029;
+	border-radius: 7px;
+	padding:2px 8px;
+	width:100%;
+	
+}
+.addCartBtn{
+	width:100%;
+	height:40px;
+	background-color: #F1FFD5;
+	border:none;
+	border-radius: 0 0 25px 25px;
+	color:#1e3003;
+	position: absolute;
+	bottom:0;
+	cursor: pointer;
+	box-shadow: 0px 6px 10px #00000029;
+	font-size: 1.2em;
+}
+.addCartBtn:hover{
+	background-color: #6ba353;
+	color:#fff;
+}
+
+.productViewMore{
+	width:300px;
+	height:360px;
+	 box-shadow: 0px 0px 20px #00000029;
+	 border-radius:25px;
+	 display:flex;
+	 flex-wrap: wrap;
+	 align-content: center;
+	 justify-content:center;
+	 background: #d8d8db;
+	 color:#fff;
+	 cursor:pointer;
+}
+.productViewMore:hover{
+	background: #c0c0c4;
+}
+.productViewMore p{
+	font-size:2em;
+	font-weight: 600;
+}
+
+
+
+aside{
+	display: none;
+    overflow-y: auto;
+	/* position:fixed;
+	background-color: black;
+	width:300px;
+	height:calc(100vh - 85px);
+	top:85px;
+	left:0; */
+}
+.open{
+	display: block;
+    	margin-top: 85px;
+	    height: calc(100vh - 85px);
+	    background-color: #fff;
+	    width: 296px;
+	    box-shadow: 0px 6px 6px #00000029;
+	    position: fixed;
+	    z-index: 10;
+	    font-size: 17px;
+	    transform: translateX(-400px);
+    animation: openMenu 0.3s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes openMenu{
+	from {
+        transform: translateX(-400px);
+    }
+    to{
+    	transform: translateX(0px);
+    }
+}
+
+
+

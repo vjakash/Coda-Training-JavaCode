@@ -1,0 +1,69 @@
+<script>
+	function icecream()
+	{
+		
+	} 
+	function cone(){
+		this.cost=function()
+		{
+			return 10;
+		}
+	}
+	cone.prototype=new icecream();
+	function cream(item){
+		this.cost=function()
+		{
+			return 5+item.cost();
+		}
+	}
+	
+	function nuts(item){
+		this.cost=function()
+		{
+			return 5+item.cost();
+		}
+	}
+	function fruits(item){
+		this.cost=function()
+		{
+			return 5+item.cost();
+		}
+	}
+	cream.prototype=new icecream();
+	nuts.prototype=new icecream();
+	fruits.prototype=new icecream();
+	
+	function makeIcecream()
+	{
+		var yummy=new cone();
+		return yummy;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var i=new makeIcecream();
+	//i=new fruits(i);
+	//i=new fruits(i);
+	i=new nuts(i);
+	i=new cream(i);
+	console.log('The cost of icecream is...'+i.cost());
+</script>

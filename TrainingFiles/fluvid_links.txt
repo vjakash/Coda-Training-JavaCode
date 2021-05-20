@@ -106,6 +106,15 @@ SpringMVC error handling                                 -https://www.youtube.co
 SpringmMVC web 4.0                                       -https://www.youtube.com/watch?v=EXzFv4-1vP8
 Spring MVC with hibernate ,complete flow                 -https://www.youtube.com/watch?v=xLLRB27JIh4
 
+Day-33
+Spring Boot intro                                       -https://www.youtube.com/watch?v=hdsile6zmEE
+Spring Boot MVC setup, intro and flow                   -https://www.youtube.com/watch?v=y4Egv_7_C3M
+Spring Boot MVC with Hibernate                          -https://www.youtube.com/watch?v=XIk2275sblE
+
+Day-34
+HTM,JavaScript intro                                    -https://youtu.be/UkC-9h9CUOQ
+
+
 Revision
 Spring                                       -https://www.youtube.com/watch?v=aoeaA6zfpaY
 Spring AOP.                                  -https://www.youtube.com/watch?v=eUts2G1BHvE
