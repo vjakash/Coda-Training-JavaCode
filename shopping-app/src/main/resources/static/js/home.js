@@ -1,11 +1,6 @@
 /**
  * 
  */
-function openLeftMenu(){
-		document.getElementById("hamburger").classList.toggle("is-active");
-		document.getElementById("menuBar").classList.toggle("open");
-
-}
 
 
 
@@ -21,7 +16,8 @@ function openLeftMenu(){
 		if(i>=banners.length) i=0;
 	},3000);
 	
-	function changeBanner(side){
+
+	 function changeBanner(side){
 		clearInterval(bannerChanger);
 		if(side=="left"){
 			i--;
@@ -35,12 +31,36 @@ function openLeftMenu(){
 			document.getElementById("banner").style.backgroundImage=`url(${banners[i]})`;
 			i++;
 			if(i>=banners.length) i=0;
-		},3000);
+		},4000);
 	}
 	
+	async function addItem(event,id,name,price){
+		
+		event.preventDefault()
+		let qty=Number(document.getElementById(id).value);
+		console.log(qty);
+		
+		let result=await fetch('http://localhost:8080/addItem', {
+	    method: 'POST',
+	    headers: {
+	      'Accept': 'application/json',
+	      'Content-Type': 'application/json'
+	    },
+	    body: JSON.stringify({id,name,price,qty})
+	  });
+	  
+	  if(result.status==200){
+		document.getElementById("toast").classList.remove("showToast");
+		document.getElementById("toast").classList.toggle("showToast");
+		setTimeout(()=>{
+			document.getElementById("toast").classList.remove("showToast");
+		},2000);
+	  }
+	  result=await result.json();
+	  document.getElementById("totalItem").innerHTML=result;	  
+	}
 	
-	
-	`
+/*	`
 		INSERT INTO Item Values(0,"https://gudbasket-pictures.s3.ap-south-1.amazonaws.com/products/mushroom-box-freshproduceshoppe-600x600.jpg","Mushroom",200,"vegetables","Kg");
 		INSERT INTO Item Values(1,"https://gudbasket-pictures.s3.ap-south-1.amazonaws.com/products/What_to_do_with_broccoli-1-500x375.jpg","Brocolli",150,"Vegetables","Kg");
 		INSERT INTO Item Values(2,"https://c.ndtvimg.com/p5qg74v8_potato_625x300_01_August_18.jpg","Potato",50,"vegetables","Kg");
@@ -53,12 +73,12 @@ function openLeftMenu(){
 		INSERT INTO Item Values(8,"https://www.cmiapples.com/ecom_img/original-6-38-jonagold-apples.jpg","Apple",40,"fruits","Kg");
 		INSERT INTO Item Values(9,"https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg.webp","Grapes",125,"fruits","Kg");
 
-		INSERT INTO Item Values(0,"","Mushroom",200,"vegetables","Kg");
-		INSERT INTO Item Values(0,"","Mushroom",200,"vegetables","Kg");
-		INSERT INTO Item Values(0,"","Mushroom",200,"vegetables","Kg");
-		INSERT INTO Item Values(0,"","Mushroom",200,"vegetables","Kg");
-		INSERT INTO Item Values(0,"","Mushroom",200,"vegetables","Kg");
+		INSERT INTO Item Values(10,"https://img.etimg.com/thumb/msid-74742498,width-300,imgsize-263761,,resizemode-4,quality-100/rice-agencies.jpg","Rice",135,"groceries","Kg");
+		INSERT INTO Item Values(11,"https://www.verywellhealth.com/thmb/sCusJsIGUJ2Son6fYOIPihE55RM=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/the-wheat-allergy-diet-guide-1324279-primary-recirc-70ef0114e17e4f7b9a1faeab8b516e1e.jpg","Wheat",258,"groceries","Kg");
+		INSERT INTO Item Values(12,"https://kj1bcdn.b-cdn.net/media/43822/sugar.jpg","Sugar",85,"groceries","Kg");
+		INSERT INTO Item Values(13,"https://5.imimg.com/data5/IN/MS/HW/SELLER-33641790/red-chilli-powder-500x500.jpg","Chilli Powder",150,"groceries","Kg");
+		INSERT INTO Item Values(14,"","Mushroom",200,"vegetables","Kg");
 
 
 		
-	`
+	`*/

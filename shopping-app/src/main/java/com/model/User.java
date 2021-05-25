@@ -1,9 +1,14 @@
 package com.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -12,6 +17,11 @@ import javax.validation.constraints.Size;
 @Entity
 public class User {
 
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", mobile=" + mobile
+				+ ", email=" + email +  "]";
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int uid;
@@ -32,6 +42,15 @@ public class User {
 	@Email(message = "Invalid Email")
 	private String email;
 	
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,mappedBy = "user",targetEntity=Address.class)
+	private Set<Address>  addresses;
+	
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(Set<Address> addresses) {
+		this.addresses = addresses;
+	}
 	public int getUid() {
 		return uid;
 	}

@@ -35,11 +35,27 @@ public class UserDAOImpl implements UserDAO {
 		Session session= sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from User user where user.username=:name");
 		query.setParameter("name", name);
-		List list=query.list();
-		if(list.size()!=0) {			
-			user=(User)list.get(0);
-		}
+		user=(User)query.uniqueResult();
 		return user;
+	}
+	@Override
+	public int updateUser(User user) {
+		User user1=null;
+		Session session= sessionFactory.getCurrentSession();
+		 String hql =" update User u set"+
+				 	 " u.username=:uname,"
+				 	 + "u.password=:upass,"
+				 	 + "u.mobile=:mob,"
+				 	 + "u.email=:email "
+				 	 + "where u.uid=:uid";
+		Query query = session.createSQLQuery(hql);
+		query.setParameter("uname", user.getUsername());
+		query.setParameter("upass", user.getPassword());
+		query.setParameter("mob", user.getMobile());
+		query.setParameter("email", user.getEmail());
+		query.setParameter("uid",user.getUid());
+        int count = query.executeUpdate();        
+		return count;
 	}
 
 }

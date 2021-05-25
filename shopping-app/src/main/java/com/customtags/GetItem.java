@@ -1,8 +1,12 @@
 package com.customtags;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
@@ -44,34 +48,42 @@ public class GetItem  extends TagSupport {
 	@Override
 	public int doStartTag() throws JspException {
 		itemList=homeService.getAllItemsByType(type);
-//		System.out.println(itemList);
 		JspWriter out=pageContext.getOut();
+		HttpSession session=pageContext.getSession();
+		Map<String, ArrayList<Float>> cart=(Map<String, ArrayList<Float>>)session.getAttribute("cart");
+		if(cart==null) {
+			cart=new HashMap<String, ArrayList<Float>>();
+			session.setAttribute("cart", cart);
+		}
 		int len=!noOfItems.equals("*")?Integer.valueOf(noOfItems):itemList.size();
 		try {
 			out.println("<div class=\"productList\">\n");
 			for(int i=0;i<len;i++) {
+				float quantity=cart.get(itemList.get(i).getName())==null?0:cart.get(itemList.get(i).getName()).get(0);
 				out.println( "<div class=\"product\">\n"
 						+ "			<img src=\""+itemList.get(i).getImageUrl()+"\"/>\n"
 						+ "			<p class=\"productName\">"+itemList.get(i).getName()+"</p>\n"
 						+ "			<p class=\"productPrice\">₹ "+itemList.get(i).getPrice()+"/"+itemList.get(i).getUnit()+"</p>\n"
-						+ "			<form>\n"
-						+ "				<input class=\"quantityInput\" type=\"number\" step=\"0.5\" value=\"0\" min=\"0\"/>\n"
-						+ "				<input class=\"addCartBtn\" type=\"submit\" value=\"Add to cart\">\n"
+						+ "			<form onSubmit=\"return false;\">\n"
+						+ "				<input id="+itemList.get(i).getItem_id()+" class=\"quantityInput\" type=\"number\" step=\"0.5\" value=\""+quantity+"\" min=\"0\"/>\n"
+						+ "				<button class=\"addCartBtn\" value=\"Add to cart\" onClick=addItem(event,"+itemList.get(i).getItem_id()+",\""+itemList.get(i).getName()+"\","+itemList.get(i).getPrice()+")>Add to cart</button>\n"
 						+ "			</form>\n"
 						+ "		</div>\n");
 			}
-			out.println("	<div class=\"productViewMore\">\n"
-					+ "			<p>View More&nbsp; -&gt;</p>\n"
-					+ "		</div>\n"
-					+ "	</div>");
+			if(!noOfItems.equals("*")) {
+				out.println("<a href=\"category/"+type+"\">	<div class=\"productViewMore\">\n"
+						+ "			<p>View More&nbsp; -&gt;</p>\n"
+						+ "		</div>\n</a>");
+			}
+			out.println("</div>");
 	
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return super.doStartTag();
 	}
-
+	
 	public HomeService getHomeService() {
 		return homeService;
 	}

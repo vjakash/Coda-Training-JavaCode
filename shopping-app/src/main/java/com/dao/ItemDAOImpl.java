@@ -25,12 +25,10 @@ public class ItemDAOImpl implements ItemDAO{
 	
 	@Override
 	public List<Item> findAllItemByType(String type) {
-		System.out.println(type);
 		Session session= sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from Item item where item.type=:t");
 		query.setParameter("t", type);
 		List list=query.list();
-		System.out.println(list);
 		return list;
 	}
 

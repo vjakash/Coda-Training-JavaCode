@@ -1,3 +1,4 @@
+<%@page import="org.springframework.boot.web.servlet.server.Session"%>
 <%@page import="com.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Fresh basket</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/home.css">
 </head>
@@ -22,7 +24,10 @@
         </div>
 
         <div class="circle" style="cursor: pointer;outline: 0;">
-            <img src="/images/circle.png" alt="tabs">
+           <a href="/cart">
+           	 <img src="/images/circle.png" alt="tabs">
+           	 <span id="totalItem" class="badge">${totalItems}</span>
+            </a>
         </div>
 	</nav>
 	<main>
@@ -46,16 +51,29 @@
 				<shop:getItems type="fruits" noOfItems="4"/>
 			</div>
 			<div class="category">
-				<p class="categoryName">Vegetables</p>
-				
+				<p class="categoryName">Groceries</p>
+				<shop:getItems type="groceries" noOfItems="4"/>
 			</div>
 		</div>
 	</main>
 	<%@ include file="footer.jsp"%>
-<script src="/js/home.js"></script>
 	<aside id="menuBar">
-	
+		<p class="menuBarHome"><a href="/home"><i class="fa fa-home"></i><i class="fab fa-mobile-alt"></i> Home</a></p>
+		<p class="menuBarHeading">categories</p>
+		<ul class="menuBarcategories">
+			<li><a href="/category/vegetables">Vegetables</a></li>
+			<li><a href="/category/fruits">Fruits</a></li>
+			<li><a href="/category/groceries">Groceries</a></li>
+		</ul>
+		<p><a href="/account">Account</a></p>
+		<p><a href="/logout">Logout</a></p>
 	</aside>
+	
+	<div id="toast" class="toast">
+		<p>Cart Updated</p>
+	</div>
+<script src="/js/home.js"></script>
+<script src="/js/common.js"></script>
 </body>
 </html>
 					

@@ -22,6 +22,10 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
- 
+  <tag>
+    <name>getCartItems</name>
+    <tagclass>com.customtags.GetCartItems</tagclass>
+    <bodycontent>empty</bodycontent>
+  </tag>
   
 </taglib>

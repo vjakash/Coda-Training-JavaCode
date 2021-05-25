@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.model.LoginForm;
 import com.model.User;
 import com.services.LoginService;
+import com.utilities.SendMail;
 
 @Controller
 @RequestMapping("/")
@@ -23,31 +24,47 @@ public class LoginController {
 	private LoginService loginService;
 	
 	@RequestMapping(value = "",method = RequestMethod.GET)
-	public ModelAndView register(ModelAndView mandv) {
+	public ModelAndView getLoginPage(ModelAndView mandv,HttpServletRequest request) {
 		LoginForm loginForm=new LoginForm();		
 		mandv.addObject("loginForm", loginForm);
 		mandv.setViewName("login");
+		HttpSession session= request.getSession();
+		session.setAttribute("passwordError", "");
+		session.setAttribute("usernameError", "");
+
 		return mandv;
+	}
+	@RequestMapping(value = "logout",method = RequestMethod.GET)
+	public String logout(ModelAndView mandv,HttpServletRequest request) {
+		LoginForm loginForm=new LoginForm();		
+		mandv.addObject("loginForm", loginForm);
+		mandv.setViewName("login");
+		HttpSession session= request.getSession();
+		session.invalidate();
+		return "redirect:/";
 	}
 	@RequestMapping(value = "submitLogin",method = RequestMethod.POST)
 	public String submitLogin(ModelAndView mandv,@Valid LoginForm loginForm,BindingResult result,HttpServletRequest request) {
 		String returnString="";
+		HttpSession session= request.getSession();
 		if(result.hasErrors()) {
 			returnString="login";
 		}else {
 			User user=loginService.isUserPresent(loginForm.getUsername());
-			System.out.println(user);
+			
 			if(user!=null) {
 				if(user.getPassword().equals(loginForm.getPassword())) {
-					HttpSession session= request.getSession();
 					session.setAttribute("user", user);
+					session.setAttribute("passwordError", "");
+					session.setAttribute("usernameError", "");
 					returnString="redirect:/home";					
 				}else {
-					mandv.addObject("passwordError", ":password incorrect");
+					session.setAttribute("passwordError", ":password incorrect");
 					returnString="login";
 				}
 			}else {
-				mandv.addObject("usernameError", ":user doesn't exists");
+				System.out.println("user doesn't exit");
+				session.setAttribute("usernameError", ":user doesn't exists");
 				returnString="login";
 			}
 		}

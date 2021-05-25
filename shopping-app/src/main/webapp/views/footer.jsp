@@ -26,9 +26,9 @@
                     </a>
                 </div>
                 <p>
-                   <i class="fas fa-mobile-alt"></i> &nbsp; +91 9585270270</p>
+                   <i class="fa fa-mobile-alt"></i> &nbsp; +91 9585270270</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> &nbsp; Chennai,India</p>
+                    <i class="fa fa-map-marker-alt"></i> &nbsp; Chennai,India</p>
             </div>
             <div class="contactDiv clickable">
                 <p>INFORMATION</p>

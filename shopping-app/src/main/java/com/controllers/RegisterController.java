@@ -1,5 +1,7 @@
 package com.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,13 @@ public class RegisterController {
 	private RegisterService registerService;
 	
 	@RequestMapping(value = "register",method = RequestMethod.GET)
-	public ModelAndView register(ModelAndView mandv) {
+	public ModelAndView register(ModelAndView mandv,HttpServletRequest request) {
 		User user=new User();		
 		mandv.addObject("user", user);
 		mandv.setViewName("register");
+		HttpSession session= request.getSession();
+		session.setAttribute("passwordError", "");
+		session.setAttribute("usernameError", "");
 		return mandv;
 	}
 	@RequestMapping(value = "submitRegister",method = RequestMethod.POST)
